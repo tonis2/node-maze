@@ -1,0 +1,29 @@
+{
+  "name": "maze",
+  "version": "1.0.0",
+  "description": "node maze api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tonis2/node-maze.git"
+  },
+  "keywords": [
+    "express",
+    "maze",
+    "mongodb",
+    "es2015"
+  ],
+  "author": "tonis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tonis2/node-maze/issues"
+  },
+  "homepage": "https://github.com/tonis2/node-maze#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "mongoose": "^4.5.4"
+  }
+}
