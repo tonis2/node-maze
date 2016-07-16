@@ -8,7 +8,7 @@ let labyrinths = new Schema({
   end: [{ x: { type: Number }, y: { type: Number } }],
   playfield: [{ x: { type: Number, default: 0 },
                 y: { type: Number, default: 0 },
-                type: { type: String, default: "empty" }
+                type: { type: String, enum: ['empty', 'blocked'] }
              }]
 });
 

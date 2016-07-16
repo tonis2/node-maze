@@ -5,15 +5,17 @@ const createUser = require("./routes/user").createUser;
 const createLab = require("./routes/labyrinth").createLabyrinths;
 const findLab = require("./routes/labyrinth").findLabyrinths;
 const updateLab = require("./routes/labyrinth").updateLabyrinths;
+const solution = require("./routes/labyrinth").findSolution;
 
 app.post("/users/:username/:password", createUser);
-
-
-app.all('/labyrinth', auth);
+///
+app.all("/labyrinth*", auth);
+///
 app.get("/labyrinth", findLab);
+app.get("/labyrinth/:id", findLab);
+app.get("/labyrinth/:id/solution", solution);
+///
 app.post("/labyrinth", createLab);
-app.get("/labyrinth/:id", updateLab);
-app.get("/labyrinth/:id/solution", createUser);
 app.post("/labyrinth/:id/playfield/:x/:y/:type", updateLab);
 app.post("/labyrinth/:id/start/:x/:y", updateLab);
 app.post("/labyrinth/:id/end/:x/:y", updateLab);
