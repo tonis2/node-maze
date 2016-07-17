@@ -18,8 +18,13 @@ const users = (( username ) => {
   return new Promise((resolve, reject) => {
     DB.usersDB.findOne({ username:username })
       .exec((err, user) => {
-          if(user)
+          if(user) {
             resolve(user);
+          } else if (err) {
+            reject(err);
+          } else {
+            reject("no user found");
+          }
       });
   });
 });
@@ -32,17 +37,13 @@ const auth = (( req,res,next ) => {
   let decode = Buffer.from(authHeader[1], 'base64').toString("ascii");
   let userData = decode.split(':');
   users(userData[0]).then( user => {
-    if(user) {
        if(user.password === userData[1]) {
           req.user = user;
           next();
-       } else {
-         res.json("Authorization data wrong");
        }
-    } else {
-         res.json("Authorization data wrong");
-    }
-  });
+  }).catch(err => {
+      res.json(err);
+    });
 });
 
 module.exports = {

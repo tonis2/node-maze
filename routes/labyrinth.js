@@ -10,6 +10,8 @@ const labyrinths = ( userid, labyrinth ) => {
                 resolve(data);
               } else if (err) {
                 reject(err);
+              } else {
+                reject("not found");
               }
           });
         } else if(labyrinth) {
@@ -19,6 +21,8 @@ const labyrinths = ( userid, labyrinth ) => {
                 resolve(data);
               } else if (err) {
                 reject(err);
+              } else {
+                reject("not found");
               }
           });
         }
@@ -33,12 +37,16 @@ const findLabyrinths = ((req, res) => {
         item.playfield.forEach( state => {
             if(state._id == req.params.id) {
               res.json(state.type);
+            } else {
+              res.json("id not found");
             }
         });
       })
     } else {
       res.json(data);
     }
+  }).catch( err => {
+    res.json(err);
   })
 });
 
@@ -66,8 +74,7 @@ const updateLabyrinths = ((req, res) => {
                   res.json("data updated");
                 }
               });
-        })
-        .catch(err => {
+        }).catch(err => {
           res.json(err);
         });
   } else if( url[3] === "start" ) {
@@ -122,6 +129,8 @@ const findSolution = ((req, res) => {
     solveMaze(data[0]).then( solution => {
       res.json(solution);
     })
+  }).catch(err => {
+      res.json(err);
   });
 });
 
