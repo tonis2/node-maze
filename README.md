@@ -6,7 +6,7 @@ Works with node.js that supports latest es2015 features.
 
 API
 Auth: BasicAuth.
-
+----
   PUSH /users/<username>/<password>
   Creates account to connect api
   
