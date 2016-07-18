@@ -19,7 +19,7 @@ Auth: BasicAuth.
   
   Sets the type of the block
   ----
-  PUSH /labyrinth/<:id/[start|end]/:x/:y
+  PUSH /labyrinth/:id/[start|end]/:x/:y
   
   Set the start/end of the labyrinth
   -----
