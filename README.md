@@ -7,19 +7,19 @@ Works with node.js that supports latest es2015 features.
 API
 Auth: BasicAuth.
 ----
-  PUSH /users/<username>/<password>
+  PUSH /users/:username/:password
   
   Creates account to connect api
   ----
-  GET /labyrinth/<id>
+  GET /labyrinth/:id
   
   Returns the type of the block
   ----
-  PUSH /labyrinth/<id>/playfield/<x>/<y>/<type>
+  PUSH /labyrinth/:id/playfield/:x/:y/:type
   
   Sets the type of the block
   ----
-  PUSH /labyrinth/<id>/[start|end]/<x>/<y>
+  PUSH /labyrinth/<:id/[start|end]/:x/:y
   
   Set the start/end of the labyrinth
   -----
@@ -31,7 +31,7 @@ Auth: BasicAuth.
   
   Creates a new labyrinth, returns the labyrinth id
   -----
-  GET /labyrinth/<id>/solution
+  GET /labyrinth/:id/solution
   
   Returns a solution for the labyrinth in the form [ direction, direction, ... ]
   ----
