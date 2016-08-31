@@ -20,7 +20,7 @@ this.returnType = (x,y) => {
  }
   this.changeType = (x,y) => {
     let type = this.returnType(x,y);
-    playfield.map( data => {
+    playfield.forEach( data => {
       if((data.x == x) && (data.y == y)) {
           data.type = "visited";
       }
@@ -29,7 +29,7 @@ this.returnType = (x,y) => {
   this.solutionPath = (x,y) => {
        let filteredData = path.filter( data => (data.x == x) && (data.y == y));
        if(filteredData.length > 0) {
-          path.map( (item, index) => {
+          path.forEach( (item, index) => {
             if(item.x === lastTypes.x && (item.y === lastTypes.y)) {
               path.splice(index, 1);
             }
@@ -96,7 +96,7 @@ const solveMaze = (data ) => {
       let playfield = data.playfield;
       let start = data.start[0];
       let end = data.end[0];
-      playfield.map( item => {
+      playfield.forEach( item => {
         if(item.x == start.x && (item.y == start.y)) {
           item.type = "start";
         } else if (item.x == end.x && (item.y == end.y)) {
